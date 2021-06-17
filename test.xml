@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="ArephmaticTest">
+    <test name="TestSignIn">
+        <classes>
+            <class name="tests.SignInTest"></class>
+        </classes>
+    </test>
+    <test name="TestWishListAdd">
+        <classes>
+            <class name="tests.AddOneItemToWishListTest"></class>
+        </classes>
+    </test>
+</suite>
+
