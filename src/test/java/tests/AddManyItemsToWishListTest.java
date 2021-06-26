@@ -1,15 +1,16 @@
 package tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.ResourceBundle;
 
 public class AddManyItemsToWishListTest extends BaseTest {
     @BeforeClass
     public void signIn() {
-        signInPageModel.signIntoAccount("hayk@mail.ru", "Qwerty12@");
+        signInAndOutPageModel.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
+
     }
 
 

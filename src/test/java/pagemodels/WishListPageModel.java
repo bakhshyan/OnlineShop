@@ -4,13 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class WishListPageModel {
+public class WishListPageModel extends BasePage {
 
     private WebDriver driver;
     private List<WebElement> addedWishListItems;
@@ -25,29 +22,27 @@ public class WishListPageModel {
     private WebElement wishItemSaveButton;
 
 
-
     public WishListPageModel(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     public void addWishItem(String wishItemName) {
-        new WebDriverWait(driver,15).until(ExpectedConditions.visibilityOf(goToMyWishListsPage)).click();
-       // goToMyWishListsPage.click();
+        waitForELementToAppear(goToMyWishListsPage);
+        goToMyWishListsPage.click();
         myWishItemName.sendKeys(wishItemName);
         wishItemSaveButton.click();
     }
 
-    public Boolean  checkedWishItemExists(String wishItem) {
+    public Boolean checkedWishItemExists(String wishItem) {
         boolean isAddedWishItem = false;
         setAddedWishListItems();
-       // addedWishListItems = driver.findElement(By.xpath("//table[@class='table table-bordered']/tbody")).findElements(By.tagName("tr"));
         for (WebElement a : addedWishListItems) {
             if (wishItem.equals(a.findElement(By.tagName("td")).findElement(By.tagName("a")).getText())) {
                 isAddedWishItem = true;
             }
         }
-        return  isAddedWishItem;
+        return isAddedWishItem;
     }
 
     public int getWishListItemQuantiy() {
@@ -57,7 +52,7 @@ public class WishListPageModel {
     }
 
     private void setAddedWishListItems() {
-        addedWishListItems=driver.findElement(By.xpath("//table[@class='table table-bordered']/tbody")).findElements(By.tagName("tr"));
+        addedWishListItems = driver.findElement(By.xpath("//table[@class='table table-bordered']/tbody")).findElements(By.tagName("tr"));
     }
 
 
