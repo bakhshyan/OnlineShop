@@ -4,10 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import pagemodels.CartPage;
-import pagemodels.SearchPage;
-import pagemodels.SignInAndOutPage;
-import pagemodels.WishListPage;
+import pagemodels.*;
 
 public class BaseTest {
 
@@ -16,6 +13,7 @@ public class BaseTest {
     public WishListPage wishListPage;
     public SearchPage searchPage;
     public CartPage cartPage;
+    public MyAccountPage myAccountPage;
 
     @BeforeTest(alwaysRun = true)
     public void openBrowser() {
@@ -28,6 +26,7 @@ public class BaseTest {
         wishListPage = new WishListPage(driver);
         searchPage = new SearchPage(driver);
         cartPage = new CartPage(driver);
+        myAccountPage = new MyAccountPage(driver);
 
     }
 

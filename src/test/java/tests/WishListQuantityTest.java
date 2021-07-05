@@ -15,6 +15,7 @@ public class WishListQuantityTest extends BaseTest {
 
     @Test(dataProvider = "wish-list-items")
     public void addWishList(String wishItem) {
+        myAccountPage.goToMyWishListPage();
         wishListPage.addWishItem(wishItem);
 
     }

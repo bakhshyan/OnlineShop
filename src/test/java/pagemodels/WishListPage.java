@@ -28,8 +28,6 @@ public class WishListPage extends BasePage {
     }
 
     public void addWishItem(String wishItemName) {
-        waitForELementToAppear(goToMyWishListsPage);
-        goToMyWishListsPage.click();
         myWishItemName.sendKeys(wishItemName);
         wishItemSaveButton.click();
     }

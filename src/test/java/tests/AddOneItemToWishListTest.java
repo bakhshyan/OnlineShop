@@ -11,6 +11,7 @@ public class AddOneItemToWishListTest extends BaseTest {
     public void testWishListAdd() {
         signInAndOutPage.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
         String wishItem = "123";
+        myAccountPage.goToMyWishListPage();
         wishListPage.addWishItem(wishItem);
         Assert.assertTrue(wishListPage.checkedWishItemExists(wishItem), "Wish item is not added");
 

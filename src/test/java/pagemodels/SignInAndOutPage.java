@@ -28,13 +28,29 @@ public class SignInAndOutPage extends BasePage {
         this.driver = driver;
     }
 
-    public void signIntoAccount(String email, String password) {
+    private void goToSignPage() {
         waitForELementToAppear(goToSignPage);
         goToSignPage.click();
+    }
+
+    private void setEmail(String email) {
         waitForELementToAppear(this.email);
         this.email.sendKeys(email);
+    }
+
+    private void setPassword(String password) {
         this.password.sendKeys(password);
+    }
+
+    private void signInButtonClick() {
         signInButton.click();
+    }
+
+    public void signIntoAccount(String email, String password) {
+        goToSignPage();
+        setEmail(email);
+        setPassword(password);
+        signInButtonClick();
     }
 
     public void signOut() {

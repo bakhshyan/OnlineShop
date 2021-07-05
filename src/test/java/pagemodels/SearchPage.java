@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,7 @@ public class SearchPage extends BasePage {
     private WebElement searchInput;
 
     @FindBy(name = "submit_search")
-    private WebElement searchButtonClick;
+    private WebElement searchButton;
 
     @FindBy(className = "product_list grid row")
     private WebElement productList;
@@ -46,10 +44,18 @@ public class SearchPage extends BasePage {
         this.driver = driver;
     }
 
-    public void searchItem(String searchItem) {
+    private void setSearchInput(String searchItem) {
         waitForELementToAppear(searchInput);
         searchInput.sendKeys(searchItem);
-        searchButtonClick.click();
+    }
+
+    public void searchButtonClick() {
+        searchButton.click();
+    }
+
+    public void searchItem(String searchItem) {
+        setSearchInput(searchItem);
+        searchButtonClick();
     }
 
     private List<String> cartAddedItemsNames;
@@ -61,9 +67,9 @@ public class SearchPage extends BasePage {
             scrollIntoElement(searchedItems.get(i));
             Actions actions = new Actions(driver);
             actions.moveToElement(searchedItems.get(i)).perform();
-            new WebDriverWait(driver, 80).until(ExpectedConditions.visibilityOf(searchedItems.get(i)));
-            new WebDriverWait(driver, 150).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(addtoCardButton, i + 1))))).click();
-
+            waitForELementToAppear(searchedItems.get(i));
+            waitForELementToAppear(driver.findElement(By.xpath(String.format(addtoCardButton, i + 1))));
+            driver.findElement(By.xpath(String.format(addtoCardButton, i + 1))).click();
             closePopWindow();
             cartAddedItemsNames.add(driver.findElement(By.xpath(String.format(addedToCardItemName, i + 1))).getText());
         }
