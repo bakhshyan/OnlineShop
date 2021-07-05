@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class WishListPageModel extends BasePage {
+public class WishListPage extends BasePage {
 
     private WebDriver driver;
     private List<WebElement> addedWishListItems;
@@ -22,7 +22,7 @@ public class WishListPageModel extends BasePage {
     private WebElement wishItemSaveButton;
 
 
-    public WishListPageModel(WebDriver driver) {
+    public WishListPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }

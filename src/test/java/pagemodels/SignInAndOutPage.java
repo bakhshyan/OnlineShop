@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
-public class SignInAndOutPageModel extends BasePage {
+public class SignInAndOutPage extends BasePage {
     private WebDriver driver;
 
     @FindBy(css = "a[title='Log in to your customer account']")
@@ -23,7 +23,7 @@ public class SignInAndOutPageModel extends BasePage {
     @FindBy(xpath = "//a[@title='Log me out']")
     private WebElement signOutButton;
 
-    public SignInAndOutPageModel(WebDriver driver) {
+    public SignInAndOutPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }

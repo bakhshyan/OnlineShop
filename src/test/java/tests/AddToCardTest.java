@@ -10,12 +10,12 @@ public class AddToCardTest extends BaseTest {
 
     @Test
     public void testAddToCart() {
-        signInAndOutPageModel.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
-        searchPageModel.searchItem("short");
-        searchPageModel.addSearchedItemToCart();
-        List<String> addedItemsNames = searchPageModel.getAddedItemNames();
-        searchPageModel.goToCart();
-        Assert.assertTrue(cartPageModel.compare(addedItemsNames, cartPageModel.cardItemsNames()));
+        signInAndOutPage.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
+        searchPage.searchItem("short");
+        searchPage.addSearchedItemToCart();
+        List<String> addedItemsNames = searchPage.getAddedItemNames();
+        searchPage.goToCart();
+        Assert.assertTrue(cartPage.compare(addedItemsNames, cartPage.cardItemsNames()));
 
     }
 }

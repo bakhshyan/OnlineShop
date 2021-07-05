@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 public class AddManyItemsToWishListTest extends BaseTest {
     @BeforeClass
     public void signIn() {
-        signInAndOutPageModel.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
+        signInAndOutPage.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
 
     }
 
@@ -17,7 +17,7 @@ public class AddManyItemsToWishListTest extends BaseTest {
     @Test(dataProvider = "wish-list-items")
     public void testAddManyItemsToWishList(String wishItem) {
 
-        wishListPageModel.addWishItem(wishItem);
+        wishListPage.addWishItem(wishItem);
 
     }
 

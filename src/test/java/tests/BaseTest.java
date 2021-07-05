@@ -4,18 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import pagemodels.CartPageModel;
-import pagemodels.SearchPageModel;
-import pagemodels.SignInAndOutPageModel;
-import pagemodels.WishListPageModel;
+import pagemodels.CartPage;
+import pagemodels.SearchPage;
+import pagemodels.SignInAndOutPage;
+import pagemodels.WishListPage;
 
 public class BaseTest {
 
     public WebDriver driver;
-    public SignInAndOutPageModel signInAndOutPageModel;
-    public WishListPageModel wishListPageModel;
-    public SearchPageModel searchPageModel;
-    public CartPageModel cartPageModel;
+    public SignInAndOutPage signInAndOutPage;
+    public WishListPage wishListPage;
+    public SearchPage searchPage;
+    public CartPage cartPage;
 
     @BeforeTest(alwaysRun = true)
     public void openBrowser() {
@@ -24,10 +24,10 @@ public class BaseTest {
         driver.get("http://automationpractice.com/");
         driver.manage().window().maximize();
 
-        signInAndOutPageModel = new SignInAndOutPageModel(driver);
-        wishListPageModel = new WishListPageModel(driver);
-        searchPageModel = new SearchPageModel(driver);
-        cartPageModel = new CartPageModel(driver);
+        signInAndOutPage = new SignInAndOutPage(driver);
+        wishListPage = new WishListPage(driver);
+        searchPage = new SearchPage(driver);
+        cartPage = new CartPage(driver);
 
     }
 

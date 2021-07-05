@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchPageModel extends BasePage {
+public class SearchPage extends BasePage {
     private WebDriver driver;
 
     @FindBy(id = "search_query_top")
@@ -41,7 +41,7 @@ public class SearchPageModel extends BasePage {
     String addedToCardItemName = "//ul[@class='product_list grid row']/li[%s]//h5[@itemprop='name']/a[@class='product-name']";
     String addtoCardButton = ("//ul[@class='product_list grid row']/li[%s]/div[@class='product-container']/div[@class='right-block']/div[@class='button-container']/a[@title='Add to cart']");
 
-    public SearchPageModel(WebDriver driver) {
+    public SearchPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }

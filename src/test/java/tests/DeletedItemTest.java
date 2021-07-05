@@ -9,11 +9,11 @@ public class DeletedItemTest extends BaseTest {
 
     @Test
     public void testItemDeletesFromCart() throws InterruptedException {
-        signInAndOutPageModel.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
-        searchPageModel.searchItem("short");
-        searchPageModel.addSearchedItemToCart();
-        searchPageModel.goToCart();
-        cartPageModel.deleteItem();
-        Assert.assertFalse(cartPageModel.cardItemsNames().contains(cartPageModel.deletedCardItemName()));
+        signInAndOutPage.signIntoAccount(ResourceBundle.getBundle("LoginCred").getString("username"), ResourceBundle.getBundle("LoginCred").getString("password"));
+        searchPage.searchItem("short");
+        searchPage.addSearchedItemToCart();
+        searchPage.goToCart();
+        cartPage.deleteItem();
+        Assert.assertFalse(cartPage.cardItemsNames().contains(cartPage.deletedCardItemName()));
     }
 }

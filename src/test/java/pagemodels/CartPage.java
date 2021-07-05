@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CartPageModel extends BasePage {
+public class CartPage extends BasePage {
     private WebDriver driver;
 
     @FindBy(xpath = "//table[@id='cart_summary']/tbody/tr/td[@class='cart_description']/p[@class='product-name']/a")
@@ -33,7 +33,7 @@ public class CartPageModel extends BasePage {
     @FindBy(id = "cgv")
     private WebElement termsOfServiceCheckbox;
 
-    public CartPageModel(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
