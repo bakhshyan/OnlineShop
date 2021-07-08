@@ -1,13 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="ArephmaticTest">
-    <test name="TestSignIn">
+<suite name="ArephmaticTest" parallel="tests" thread-count="3">
+    <test name="ChromeTest" >
+        <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="tests.SignInTest"></class>
         </classes>
     </test>
-    <test name="TestWishListAdd">
+
+
+    <test name="FirefoxTest" >
+        <parameter name="browserName" value="firefox"/>
         <classes>
-            <class name="tests.AddOneItemToWishListTest"></class>
+            <class name="tests.SignInTest"></class>
         </classes>
     </test>
 </suite>
