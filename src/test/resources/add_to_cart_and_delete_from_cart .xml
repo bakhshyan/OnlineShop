@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test_Suite">
+    <test name="AddToCard">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="test.AddToCardTest"></class>
+        </classes>
+    </test>
+    <test name="DeletedItem">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="test.DeletedItemTest"></class>
+        </classes>
+    </test>
+</suite>
+
