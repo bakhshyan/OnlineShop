@@ -23,11 +23,11 @@ public class BaseTest {
     public CartPage cartPage;
     public MyAccountPage myAccountPage;
 
-    @Parameters({"browserName"})
+
     @BeforeTest(alwaysRun = true)
-    public void openBrowser(String browserName) {
+    public void openBrowser() {
         logger.info("Browser is openning");
-        driver = DriverSigleton.getDriver(browserName);
+        driver = DriverSigleton.getDriver();
         signInAndOutPage = new SignInAndOutPage(driver);
         wishListPage = new WishListPage(driver);
         searchPage = new SearchPage(driver);

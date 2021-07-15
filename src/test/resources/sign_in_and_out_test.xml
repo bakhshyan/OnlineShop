@@ -4,13 +4,11 @@
         <listener class-name="utils.TestListener"></listener>
     </listeners>
     <test name="SignIn" >
-        <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="test.SignInTest"></class>
         </classes>
     </test>
     <test name="SignOut">
-        <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="test.SignOutTest"></class>
         </classes>

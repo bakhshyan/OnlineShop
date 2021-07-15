@@ -11,9 +11,9 @@ public class DriverSigleton {
     private DriverSigleton() {
     }
 
-    public static WebDriver getDriver(String browserName) {
+    public static WebDriver getDriver() {
         if (null == driver) {
-            switch (browserName) {
+            switch (System.getProperty("browser")) {
                 case "firefox": {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
