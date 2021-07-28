@@ -1,12 +1,11 @@
 package test;
 
-import decorator.CustomWebDriver;
-import driver.DriverSigleton;
+import factorymethod.ChromeDriverCreator;
+import factorymethod.WebDriverCreator;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
@@ -30,20 +29,11 @@ public class BaseTest {
     @BeforeTest(alwaysRun = true)
     public void openBrowser(String browserName) {
         logger.info("Browser is openning");
-        driver = DriverSigleton.getDriver(browserName);
 
-        //page factory initalization
-//        WebDriverManager.chromedriver().setup();
-//        WebDriverCreator webDriverCreator = new ChromeDriverCreator();
-//        driver = webDriverCreator.creatWebdriver();
-//        driver.get("http://automationpractice.com/");
-
-        //decorator initalization
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver = new CustomWebDriver(driver);
+        WebDriverCreator webDriverCreator = new ChromeDriverCreator();
+        driver = webDriverCreator.creatWebdriver();
         driver.get("http://automationpractice.com/");
-        driver.manage().window().maximize();
 
         signInAndOutPage = new SignInAndOutPage(driver);
         wishListPage = new WishListPage(driver);
@@ -60,7 +50,7 @@ public class BaseTest {
     @AfterTest(alwaysRun = true)
     public void tearDown() {
         logger.info("Browser is closing");
-        DriverSigleton.closeDriver();
+        driver.quit();
     }
 
 
