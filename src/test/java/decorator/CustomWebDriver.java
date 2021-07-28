@@ -11,13 +11,13 @@ public class CustomWebDriver implements WebDriver {
     public WebDriver driver;
 
     public CustomWebDriver(WebDriver driver) {
-
         this.driver = driver;
+
     }
 
     @Override
-    public void get(String s) {
-
+    public void get(String url) {
+        driver.get(url);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class CustomWebDriver implements WebDriver {
 
     @Override
     public void quit() {
-
+        driver.quit();
     }
 
     @Override
