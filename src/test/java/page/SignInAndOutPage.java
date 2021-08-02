@@ -29,20 +29,20 @@ public class SignInAndOutPage extends BasePage {
         this.driver = driver;
     }
 
-    private void goToSignPage() {
+    public void goToSignPage() {
         goToSignPage.click();
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         waitForELementToAppear(this.email);
         this.email.sendKeys(email);
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password.sendKeys(password);
     }
 
-    private void signInButtonClick() {
+    public void signInButtonClick() {
         signInButton.click();
     }
 

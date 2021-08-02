@@ -27,7 +27,7 @@ public class BaseTest {
     @BeforeTest(alwaysRun = true)
     public void openBrowser(String browserName) {
         logger.info("Browser is openning");
-        driver = DriverSigleton.getDriver(browserName);
+        //driver = DriverSigleton.getDriver(browserName);
         signInAndOutPage = new SignInAndOutPage(driver);
         wishListPage = new WishListPage(driver);
         searchPage = new SearchPage(driver);
