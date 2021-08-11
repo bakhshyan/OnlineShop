@@ -7,7 +7,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.assertj.core.api.Assertions;
 import page.SignInAndOutPage;
-import service.UserCreator;
 
 public class LoginSteps {
     SignInAndOutPage signInAndOutPage = new SignInAndOutPage(DriverSigleton.getDriver());
@@ -22,12 +21,11 @@ public class LoginSteps {
         signInAndOutPage.goToSignPage();
     }
 
-    @And("the user type the userName and password")
-    public void theUserTypeTheUserNameAndPassword() {
-        signInAndOutPage.setEmail(UserCreator.userWithCredentials().getUsername());
-        signInAndOutPage.setPassword(UserCreator.userWithCredentials().getPassword());
+    @And("the user type the {string} and {string}")
+    public void theUserTypeTheAnd(String username, String password) {
+        signInAndOutPage.setEmail(username);
+        signInAndOutPage.setPassword(password);
         signInAndOutPage.signInButtonClick();
-
     }
 
     @Then("the user is signedIn")
