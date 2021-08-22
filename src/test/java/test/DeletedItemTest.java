@@ -1,16 +1,14 @@
 package test;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import reporting.MyLogger;
 
 public class DeletedItemTest extends BaseTest {
-    private Logger logger = LogManager.getLogger(DeletedItemTest.class);
 
     @Test
     public void testItemDeletesFromCart() {
-        logger.info("DeletedItemTest has been started");
+        MyLogger.info("DeletedItemTest has been started");
         searchPage.searchItem("short");
         searchPage.addSearchedItemToCart();
         searchPage.goToCart();

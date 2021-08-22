@@ -1,16 +1,14 @@
 package test;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import reporting.MyLogger;
 
 public class TotalAmountTest extends BaseTest {
-    private Logger logger = LogManager.getLogger(TotalAmountTest.class);
 
     @Test
     public void testTotalAmount() {
-        logger.info("TotalAmountTest has started");
+        MyLogger.info("TotalAmountTest has started");
         searchPage.searchItem("short");
         searchPage.addSearchedItemToCart();
         searchPage.goToCart();
