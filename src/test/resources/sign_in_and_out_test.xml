@@ -2,6 +2,7 @@
 <suite name="Test_Suite">
     <listeners>
         <listener class-name="utils.TestListener"></listener>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
     </listeners>
     <test name="SignIn" >
         <parameter name="browserName" value="chrome"/>
